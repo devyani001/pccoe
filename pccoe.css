@@ -1,10 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Chokokutai&family=New+Rocker&family=Permanent+Marker&family=Unica+One&display=swap');
+
+
 body{
     background-color: black;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 18px;
 }
 
 .logo-image {
-    width: 10%;
+    width: 30%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* devyani */
+
+.heading{
+    text-align: center;
+    border: 1px solid red;
+    margin: 110px 0;
+    /* color: #fff; */
+    font-family: "New Rocker", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(135deg, #e9390d, #eeb15c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+
+h1{
+    font-size: 50px;
+}
+
+.welcome{
+    color: yellow;
+
+}
+
+
+.statements h2 {
+    color: rgb(57,255,20);
+    font-weight: 600;
+}
+
+.mission{
+
+}
+
+.vision{
+
 }
