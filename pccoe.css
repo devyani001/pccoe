@@ -16,6 +16,9 @@ body{
     width: 30%;
 }
 
+.nav-bg {
+    background-color: black;
+}
 
 
 
@@ -131,3 +134,167 @@ h1{
     width: 200px;
     height: 200px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Dark background for a spooky vibe */
+    color: #fff;
+}
+
+header {
+    background-color: #111; /* Darker header */
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .logo h1 {
+    color: #ff5733; /* Creepy orange color */
+    font-size: 2.5em;
+    text-shadow: 2px 2px 5px #000;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff5733; /* Orange for hover */
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733;
+}
+
+/* Main Content Styles */
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #ff5733; /* Creepy orange */
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #ff5733, 0 0 20px #ff5733;
+}
+
+.team-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.team {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #444;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.team:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 87, 51, 0.7);
+}
+
+.team h3 {
+    font-size: 2em;
+    color: #ff5733; /* Creepy orange */
+    text-shadow: 2px 2px 5px #000;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    transition: text-shadow 0.3s;
+}
+
+.team p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ccc;
+    opacity: 0.9;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+/* Hover Effect for Team Name */
+.team:hover h3 {
+    text-shadow: 0 0 15px #ff5733, 0 0 25px #ff5733;
+}
+
+/* Glowing Border Effect */
+.team::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #ff5733;
+    border-radius: 15px;
+    animation: glow 1.5s infinite alternate;
+    opacity: 0.6;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 87, 51, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 87, 51, 1);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 1.1em;
+}
+
+footer p {
+    color: #ff5733;
+    text-shadow: 1px 1px 3px #000;
+}
+
