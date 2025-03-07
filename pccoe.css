@@ -49,8 +49,7 @@ h1{
 }
 
 .welcome{
-    color: yellow;
-
+    color: white;
 }
 
 
@@ -75,3 +74,60 @@ h1{
     padding: 20px;
 }
 
+.events {
+    margin: 20px;
+    padding: 20px;
+    background: #333;
+    border-radius: 8px;
+}
+.events h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+.event-list {
+    list-style: none;
+    padding: 0;
+}
+.event-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #ff6f00;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+.event-list li:hover {
+    background: #e65100;
+}
+.event-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.event-list .event-date {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+
+
+/* our team page */
+
+.ourteampage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+}
+
+.box {
+    background-color: transparent;
+    border: 1px solid white;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 200px;
+    height: 200px;
+}
