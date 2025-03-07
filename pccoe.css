@@ -31,7 +31,7 @@ body{
 
 .heading{
     text-align: center;
-    border: 1px solid red;
+    border: 1px solid none;
     margin: 110px 0;
     /* color: #fff; */
     font-family: "New Rocker", system-ui;
@@ -57,12 +57,21 @@ h1{
 .statements h2 {
     color: rgb(57,255,20);
     font-weight: 600;
+    padding-bottom: 20px;
 }
+
+
+.statements{
+    border: 1px solid none;
+    margin: 150px 0 0 0;
+    text-align: center;
+}
+
 
 .mission{
-
+    border: 1px solid none;
+    margin: 80px 0;
+    box-shadow: 2px 2px 5px orange;
+    padding: 20px;
 }
 
-.vision{
-
-}
