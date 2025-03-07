@@ -8,9 +8,53 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pccoe.css">
+
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+        }
+        .events-section h2 {
+            color: orange;
+        }
+        .event-card {
+            background-color: #222;
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .event-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 15px rgba(255, 165, 0, 0.5);
+        }
+        .event-card h3 {
+            color: orange;
+        }
+        .form-control {
+            background-color: #222;
+            color: white;
+            border: 1px solid orange;
+        }
+        .form-control:focus {
+            border-color: orange;
+            box-shadow: 0 0 5px rgba(255, 165, 0, 0.8);
+        }
+        .btn-custom {
+            background-color: orange;
+            color: black;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #ff8800;
+        }
+    </style>
+
+
 </head>
 <body>
-    <div class="container" id="sectionHome">
+    <div class="container">
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <a class="navbar-brand" href="#">
@@ -21,7 +65,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                      <a class="nav-link nav-element active p-3" href="">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link nav-element active p-3" href="#sectionHome">Home <span class="sr-only">(current)</span></a>
                       <a class="nav-link nav-element p-3" href="teams.html">Our Teams</a>
                       <a class="nav-link nav-element p-3" href="event.html">Events and Activities</a>
                       <a class="nav-link nav-element p-3" href="contactus.html">Contact Us</a>
@@ -54,24 +98,103 @@
                 </div>
             </div>
 
-<div class="gaps" style="margin-top: 150px;"></div>
-        <div class="recent">
-            <div class="events">
-                <h2>Upcoming Events</h2>
-                <ul>
-                  <li><a href="#">Tech Fest 2024</a></li>
-                  <li><a href="#">Sports Meet</a></li>
-                  <li><a href="#">Cultural Night</a></li>
-                </ul>
-              </div>
-              
+
+
+
+
+
+    <!-- Upcoming Events Section -->
+    <section class="container my-5 events-section">
+        <!-- <h2 class="text-center mb-4">Upcoming Events</h2> -->
+        <h2 class="teamheading text-center mb-4" id="pastevents">Upcoming Events</h2>
+        <!-- Add Event Form -->
+        <div class="card bg-dark p-3 mb-4">
+            <h4 class="text-warning text-center">Add New Event</h4>
+            <form id="eventForm">
+                <div class="mb-3">
+                    <label class="form-label text-light">Event Title</label>
+                    <input type="text" class="form-control" id="eventTitle" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-light">Date</label>
+                    <input type="date" class="form-control" id="eventDate" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-light">Description</label>
+                    <textarea class="form-control" id="eventDescription" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn custom-button">Add Event</button>
+            </form>
         </div>
+
+        <!-- Event List -->
+        <div class="row" id="events-list">
+            <!-- Event Cards will be added here dynamically -->
+        </div>
+    </section>
+
+
+    <!-- Bootstrap & JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadEvents(); // Load stored events when the page loads
+
+            document.getElementById('eventForm').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent page reload
+                
+                const title = document.getElementById('eventTitle').value;
+                const date = document.getElementById('eventDate').value;
+                const description = document.getElementById('eventDescription').value;
+
+                if (title && date && description) {
+                    const newEvent = { title, date, description };
+                    saveEvent(newEvent);
+                    addEventToDOM(newEvent);
+                    this.reset(); // Clear form fields
+                }
+            });
+        });
+
+        function loadEvents() {
+            const events = JSON.parse(localStorage.getItem('events')) || [];
+            events.forEach(addEventToDOM);
+        }
+
+        function saveEvent(event) {
+            const events = JSON.parse(localStorage.getItem('events')) || [];
+            events.push(event);
+            localStorage.setItem('events', JSON.stringify(events));
+        }
+
+        function addEventToDOM(event) {
+            const eventsList = document.getElementById('events-list');
+            const eventCard = document.createElement('div');
+            eventCard.classList.add('col-md-4', 'mb-4');
+
+            eventCard.innerHTML = `
+                <div class="event-card p-3">
+                    <h3>${event.title}</h3>
+                    <p><strong>Date:</strong> ${event.date}</p>
+                    <p>${event.description}</p>
+                </div>
+            `;
+
+            eventsList.appendChild(eventCard);
+        }
+    </script>
+
+
+
+
+        
   
     </div>
-    <div class="gaps" style="margin-top: 150px;"></div>
+    <div class="gaps" style="margin-top: 200px;"></div>
 
     <footer>
-        <p>&copy; 2025 CRESA - All Rights Reserved</p>
+        <p>&copy; 2025 CRESA - All Rights Reserved<br><span style="color:white;font-family: New Rocker, system-ui; padding-top:20px;">ADNYA_DEVYANI_SAMIKSHA</span> </p>
     </footer>
         
 
